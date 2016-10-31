@@ -2,6 +2,7 @@ package apena.dataStructures;
 
 public class Main {
 	public static void main(String[] args) {
+		System.out.println("vvvvvvvvvvvvvvv");
 //		SingleLinkedList list = new SingleLinkedList();
 //		System.out.println(list.isEmpty());
 //		list.add("first");
