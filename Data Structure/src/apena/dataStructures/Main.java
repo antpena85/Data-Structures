@@ -2,33 +2,33 @@ package apena.dataStructures;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("vvvvvvvvvvvvvvv");
-//		SingleLinkedList list = new SingleLinkedList();
-//		System.out.println(list.isEmpty());
-//		list.add("first");
-//		list.add("second");
-//		list.add("third");
-//		list.add("fourth");
-//		System.out.println(list.isEmpty());
-//		System.out.println(list.size());
-//		System.out.println(list.toString());
-//		System.out.println(list.getFirst());
-//		System.out.println(list.getLast());
-//		list.addFirst("head");
-//		list.addLast("last");
-//		System.out.println(list.toString());
-//		System.out.println(list.size());
-//		list.delete("head");
-//		System.out.println(list.toString());
+		SingleLinkedList<String> list = new SingleLinkedList<>();
+		System.out.println("Is the list empty: "+list.isEmpty());
+		list.addFirst("first entry");
+		list.addLast("second entry");
+		System.out.println("is the list empty now: "+list.isEmpty());
+		System.out.println("first element in list is "+list.first());
+		System.out.println("last element in list is "+list.last());
+		System.out.println("the size of the list is: "+list.size());
+		System.out.println("Lest consume the list: ");
+		while(list.first()!=null)
+			System.out.println("- "+ list.removeFirst());
 		
-		CircularLinkedList clist = new CircularLinkedList();
-		System.out.println(clist.isEmpty());
-		System.out.println(clist.first());
-		clist.addLast("first");
-		System.out.println(clist.last());
-		clist.addLast("second");
-		System.out.println(clist.size());
-//		System.out.println(clist.toString());
-		System.out.println(clist.first()+" "+clist.last());
+		System.out.println("--------------------------------------------------");
+		
+		CircularLinkedList<String> clist = new CircularLinkedList<>();
+		System.out.println("Is the list empty: "+clist.isEmpty());
+		clist.addFirst("first entry");
+		clist.addLast("second entry");
+		clist.addLast("third entry");
+		System.out.println("is the list empty now: "+clist.isEmpty());
+		System.out.println("first element in list is "+clist.first());
+		System.out.println("last element in list is "+clist.last());
+		System.out.println("the size of the list is: "+clist.size());
+		clist.rotate();
+		System.out.println("lets return last again after rotate: "+clist.last());
+		System.out.println("Lest consume the list: ");
+		while(clist.first()!=null)
+			System.out.println("- "+clist.removeFirst());
 	}
 }

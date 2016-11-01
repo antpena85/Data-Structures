@@ -1,80 +1,48 @@
 package apena.dataStructures;
 
-class SingleLinkedList {
-	Node<String> head;
-	Node<String> tail;
-	int capacity=0;
+class SingleLinkedList<E> {
+	private Node<E> head;
+	private Node<E> tail;
+	private int size=0;
 	
 	public int size(){
-		return capacity;
+		return size;
 	}
-	
 	public boolean isEmpty(){
-		return capacity == 0;
+		return size == 0;
 	}
-	
-	public String getFirst(){
+	public E first(){
+		if(isEmpty())
+			return null;
 		return head.getVal();
 	}
-	
-	public String getLast(){
+	public E last(){
+		if(isEmpty())
+			return null;
 		return tail.getVal();
 	}
-	
-	public void addFirst(String value){
-		Node<String> first = new Node<String>(value);
-		first.setNext(head);
-		head = first;
-		capacity++;
+	public void addFirst(E value){
+		head = new Node<>(value,head);
+		if (size==0) 
+			tail=head;
+		size++;
 	}
-	
-	public void addLast(String value){
-		Node<String> last = new Node<String>(value);
+	public void addLast(E value){
+		Node<E> last = new Node<>(value,null);
 		if(isEmpty())
 			head = last;
 		else
 			tail.setNext(last);
 		tail = last;
-		capacity++;
+		size++;
 	}
-	
-	public void add(String value){
-		if (head==null){
-			head = new Node<String>(value);
-			capacity++;
-		}
-		else{
-			Node<String> end = head;
-			while (end.getNext()!=null)
-				end.setNext(end);
-			Node<String> next = new Node<String>(value);
-			end.getNext().setNext(next); 
-			tail = next;
-			capacity++;
-		}
+	public E removeFirst(){
+		if(isEmpty()) return null;
+		E delete = head.getVal();
+		head = head.getNext();
+		size--;
+		if(size==0)
+			tail = null;
+		return delete;
 	}
-	
-	public void delete(String value){
-		Node<String> node = head;
-		while(node!=null){
-			if(node.getVal().equals(value)){
-				node.setVal(node.next.val);
-				node.next=node.next.next;
-				capacity--;
-			}
-			node = node.next;
-		}
-	}
-	
-	@Override
-	public String toString() {
-		Node<String> node = head;
-		String toString="";
-		while(node!=null){
-			toString+=node.getVal()+", ";
-			node = node.next;
-		}
-		return toString;
-	}
-
 }

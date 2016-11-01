@@ -1,41 +1,19 @@
 package apena.dataStructures;
 
 class Node<E> {
-	
-	E val;
-	Node<E> next;
-	
-	public Node<E> getNext() {
-		return next;
+	private E val;
+	private Node<E> next;	
+	public Node(E value, Node<E> node){
+		val = value;
+		next = node;
 	}
-
-	public void setNext(Node<E> next) {
-		this.next = next;
-	}
-
 	public E getVal() {
 		return val;
 	}
-
-	public Node(){
-		setVal(null);
-		next = null;
-//		previous = null;
+	public Node<E> getNext() {
+		return next;
 	}
-	
-	public Node(E value) {
-		setVal(value);
-		next = null;
-//		previous = null;
+	public void setNext(Node<E> n) {
+		this.next = n;
 	}
-	
-	public Node(E value, Node<E> node){
-		setVal(value);
-		next = node;
-	}
-
-	void setVal(E val) {
-		this.val = val;
-	}
-	
 }
