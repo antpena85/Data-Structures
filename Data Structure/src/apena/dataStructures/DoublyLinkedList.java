@@ -22,7 +22,7 @@ public class DoublyLinkedList<E> {
 		}
 		
 		public void setPrev(Node<E> p) {
-			this.prev = p;
+			prev = p;
 		}
 		
 		public Node<E> getNext() {

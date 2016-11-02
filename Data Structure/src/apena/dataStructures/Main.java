@@ -30,5 +30,15 @@ public class Main {
 		System.out.println("Lest consume the list: ");
 		while(clist.first()!=null)
 			System.out.println("- "+clist.removeFirst());
+		
+		System.out.println("--------------------------------------------------");
+		
+		DoublyLinkedList<Integer> dlink = new DoublyLinkedList<Integer>();
+		for (int i = 1; i < 10; i++)
+			dlink.addFirst(i);
+		System.out.println("The list is empty: "+dlink.isEmpty());
+		System.out.printf("First integer is: %d \nLast integer is: %d \n", dlink.first(), dlink.last());
+		
+		
 	}
 }
