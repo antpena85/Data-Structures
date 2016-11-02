@@ -1,7 +1,5 @@
 package apena.dataStructures;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
-
 public class DoublyLinkedList<E> {
 	
 	private static class Node<E>{
@@ -14,23 +12,28 @@ public class DoublyLinkedList<E> {
 			prev = p;
 			next = n;
 		}
-		public Node<E> getPrev() {
-			return prev;
-		}
-		public void setPrev(Node<E> p) {
-			this.prev = p;
-		}
-		public Node<E> getNext() {
-			return next;
-		}
-		public void setNext(Node<E> n) {
-			next = n;
-		}
+		
 		public E getElement() {
 			return element;
 		}
 		
+		public Node<E> getPrev() {
+			return prev;
+		}
+		
+		public void setPrev(Node<E> p) {
+			this.prev = p;
+		}
+		
+		public Node<E> getNext() {
+			return next;
+		}
+		
+		public void setNext(Node<E> n) {
+			next = n;
+		}
 	}
+	
 	private Node<E> header;
 	private Node<E> trailer;
 	private int size;
@@ -42,7 +45,9 @@ public class DoublyLinkedList<E> {
 	}
 	
 	public int size(){return size;}
+	
 	public boolean isEmpty(){return size==0;}
+	
 	public E first(){
 		if(isEmpty())return null;
 		return header.getNext().getElement();
