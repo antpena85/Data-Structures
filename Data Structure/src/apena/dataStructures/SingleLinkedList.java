@@ -1,6 +1,6 @@
 package apena.dataStructures;
 
-class SingleLinkedList<E> {
+class SingleLinkedList<E> implements Cloneable {
 	private Node<E> head;
 	private Node<E> tail;
 	private int size=0;
@@ -44,5 +44,23 @@ class SingleLinkedList<E> {
 		if(size==0)
 			tail = null;
 		return delete;
+	}
+	
+	@Override
+	protected SingleLinkedList<E> clone() throws CloneNotSupportedException {
+		@SuppressWarnings("unchecked")
+		SingleLinkedList<E> other = (SingleLinkedList<E>)super.clone();
+		if(size>0){
+			other.head = new Node<>(head.getVal(), null);
+			Node<E> walk = head.getNext();
+			Node<E> otherTail = other.head;
+			while(walk!=null){
+				Node<E> newest = new Node<>(walk.getVal(),null);
+				otherTail.setNext(newest);
+				otherTail = newest;
+				walk = walk.getNext();
+			}
+		}
+		return other;
 	}
 }
